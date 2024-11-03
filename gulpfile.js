@@ -2,6 +2,7 @@ const gulp = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 const imagemin = require("gulp-imagemin");
 const uglify = require("gulp-uglify");
+const minHTML = require("gulp-htmlmin");
 
 // Função para chamar os itens da pasta styles
 function scripts() {
@@ -26,9 +27,15 @@ function images() {
     .pipe(imagemin()) // Comprimir as imagens
     .pipe(gulp.dest("./dist/images")); // Salvar as imagens comprimidas na pasta de destino
 }
+function htmlMin() {
+  return gulp
+    .src("./*.html")
+    .pipe(minHTML({ collapseWhitespace: true }))
+    .pipe(gulp.dest("dist"));
+}
 
 // Tarefa padrão
-exports.default = gulp.parallel(styles, images, scripts);
+exports.default = gulp.parallel(styles, images, scripts, htmlMin);
 
 // Tarefa de watch para monitorar mudanças nos arquivos .scss e imagens
 exports.watch = function () {
