@@ -1,0 +1,103 @@
+@use "cor";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: cor.$texto-terciario-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+
+  @media only screen and (max-width: 640px) {  
+    z-index: 1000;
+  }
+
+  &__container {
+    padding: 8px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5.3vw;
+
+    @media only screen and (max-width: 640px) {
+      img {
+        display: none;
+      }
+      display: flex;
+      top: 20px;
+      left: 20px;
+      // padding: 0px 3%;
+      position: fixed;
+      flex-wrap: nowrap;
+      align-content: center;
+      align-items: center;
+      background-image: url(../images/favicon/nficon2023.ico);
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 20px 4.3vw;
+    }
+  }
+
+  &__logo {
+    max-width: 140px;
+    width: 100%;
+  }
+
+  &__links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+
+    @media only screen and (max-width: 640px) {
+      display: flex;
+      justify-content: space-between;
+      position: fixed;
+      align-items: center;
+      margin-left: 0;
+      top: 23px;
+      right: 14px;
+    }
+
+    &__item {
+      margin: 5px;
+    }
+
+    &__item a {
+      text-decoration: none;
+      color: cor.$texto-principal-color;
+      background-color: cor.$buttons-color;
+      padding: 8px 14px;
+      border-radius: 1px;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease;
+      font-size: 13px;
+      font-family: Netflix, sans-serif;
+      &:hover {
+        background-color: cor.$buttons-hover-color;
+      }
+    }
+
+    .login {
+      background: none;
+      border: 1px solid cor.$borders-color;
+      &:hover {
+        background-color: rgba(225, 225, 225, 0.3);
+      }
+    }
+
+    .login-texto {
+      background: none;
+      border: none;
+      &:hover {
+        background-color: transparent;
+      }
+
+      @media only screen and (max-width: 640px) {
+        display: none;
+      }
+    }
+  }
+}

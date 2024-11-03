@@ -1,0 +1,244 @@
+@use "cor";
+@use "hero";
+@use "shows";
+@use "detalhes";
+@use "footer";
+@use "header";
+
+// Importação das fontes usando @font-face
+@font-face {
+  font-family: "Netflix";
+  src: url("../fonts/nf-icon-v1-93.eot");
+  src: url("../fonts/nf-icon-v1-93.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/nf-icon-v1-93.woff") format("woff"),
+    url("../fonts/nf-icon-v1-93.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Netflix, sans-serif;
+}
+
+body {
+  background-color: cor.$body-background-color;
+}
+
+@mixin texto($fontSize: 16px) {
+  font-size: $fontSize;
+  line-height: $fontSize + 10px;
+  color: cor.$texto-secundario-color;
+}
+
+.texto--big {
+  @include texto(30px);
+}
+
+.texto {
+  @include texto;
+}
+
+.texto--sub {
+  @include texto(20px);
+}
+
+.texto--small {
+  @include texto(12px);
+}
+
+.texto--button {
+  @include texto(13px);
+}
+
+.link--texto {
+  @include texto(14px);
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin title($fontSize: 16px) {
+  font-size: $fontSize;
+  line-height: $fontSize + 10px;
+  color: cor.$texto-principal-color;
+  // padding-block: 16px;
+}
+
+.title--big {
+  @include title(24px);
+  @media only screen and (max-width: 640px) {
+    position: relative;
+  }
+}
+
+.title {
+  @include title;
+  padding-block: 16px;
+}
+
+.title--noPadding {
+  @include title;
+  padding-block: 0;
+  padding-bottom: 16px;
+
+  @media only screen and (max-width: 640px) {
+    padding-bottom: 0;
+  }
+}
+.title--small {
+  @include title(14px);
+  @media only screen and (max-width: 640px) {
+    margin-bottom: 0;
+  }
+}
+
+p {
+  @include texto(14px);
+  margin: 12px 0;
+  @media (max-width: 768px) {
+    @include texto(13px);
+  }
+}
+
+.text--small2 {
+  @include texto(16px);
+  font-family: Netflix, sans-serif;
+}
+
+.border--title {
+  text-align: center;
+  @include title(14px);
+  border: 1px solid cor.$borders-color;
+  padding: 4px 8px;
+  margin-left: 5px;
+  color: cor.$texto-secundario-color;
+}
+
+.hook {
+  @include texto(12px);
+  margin: 12px 0;
+  margin-top: 10em;
+  text-align: center;
+
+  @media only screen and (max-width: 640px) {
+    margin-top: 10px;
+  }
+
+  @media only screen and (min-width: 641px) and (max-width: 1023px) {
+    margin-top: 10px;
+  }
+
+  &__cred {
+    text-align: center;
+    font-weight: 100;
+    margin: 0 auto;
+    padding: 25px 5vw;
+
+    @media only screen and (max-width: 640px) {
+      padding: 5px 0;
+    }
+  }
+
+  &--hr {
+    max-width: 88%;
+    margin: 0 auto;
+    background: linear-gradient(90deg, #777 0, rgba(51, 51, 51, 0.5) 50%, #777);
+    height: 1px;
+
+    @media only screen and (max-width: 640px) {
+      max-width: 94.8%;
+    }
+  }
+}
+
+.paragraf {
+  @include texto(14px);
+
+  &--item {
+    margin: 0;
+    color: cor.$texto-principal-color;
+  }
+}
+
+.paragraffooter {
+  @include texto(14px);
+  color: cor.$links-color;
+  margin: 0;
+  &__link {
+    margin: 0;
+    color: cor.$links-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.hero--texto--padding {
+  margin-top: 56px;
+  padding: 5px 0 20px;
+
+  @media only screen and (max-width: 640px) {
+    margin-top: 0;
+  }
+  @media only screen and (min-width: 641px) and (max-width: 1023px) {
+    margin-top: 0;
+  }
+}
+.title--detalhes {
+  @include title(30px);
+  font-weight: 400;
+  line-height: 34px;
+
+  @media only screen and (min-width: 641px) and (max-width: 1023px) {
+    margin: 0 15px;
+  }
+}
+
+.title--small {
+  @include title(14px);
+  color: cor.$texto-secundario-color;
+  font-weight: 400;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    @include title(12px);
+  }
+
+  &--shows {
+    @include title(14px);
+    color: cor.$texto-secundario-color;
+    font-weight: 400;
+    align-items: center;
+    padding: 0 5vw;
+    margin: 0 0 30px;
+
+    @media only screen and (max-width: 640px) {
+      padding: 0 0.1vw;
+    }
+
+    @media only screen and (min-width: 641px) and (max-width: 1023px) {
+      padding: 0 0.1vw;
+    }
+
+
+  }
+}
+.witx {
+  color: #fff;
+}
+
+.menuShow {
+  display: none;
+  @media only screen and (max-width: 640px) {
+    display: block;
+    
+  }
+    @media only screen and (min-width: 641px) and (max-width: 1023px) {
+      display: block;
+    }
+}

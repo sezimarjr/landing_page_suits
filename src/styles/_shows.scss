@@ -1,0 +1,116 @@
+@use "cor";
+
+.shows {
+  padding: 2vw 5.6vw;
+
+  @media only screen and (max-width: 640px) {
+    padding: 1vw 2.6vw;
+  }
+  @media only screen and (min-width: 641px) and (max-width: 1023px) {
+    padding: 1vw 2.6vw;
+  }
+
+  &__list {
+    margin-top: 10px;
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    list-style: none;
+
+    @media only screen and (max-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media only screen and (min-width: 641px) and (max-width: 1023px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    &--is-active {
+      display: grid;
+
+      @media only screen and (max-width: 640px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media only screen and (min-width: 641px) and (max-width: 1023px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    &__item {
+      position: relative;
+      img {
+        max-width: 100%;
+        border-radius: 4px;
+      }
+      video {
+        max-width: 100%;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  &__tabs {
+    margin-top: 82px;
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 640px) {
+      margin-top: 10px;
+      display: none;
+    }
+
+    @media only screen and (min-width: 641px) and (max-width: 1023px) {
+      margin-top: 10px;
+      display: none;
+    }
+
+    &__button {
+      color: cor.$texto-secundario-color;
+      font-size: 20px;
+      border: none;
+      padding-bottom: 5px;
+      background: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-bottom: 5px solid transparent;
+
+      &--is-active {
+        border-color: cor.$texto-secundario-color;
+      }
+    }
+
+    @media only screen and (max-width: 640px) {
+      display: none;
+    }
+    @media only screen and (min-width: 641px) and (max-width: 1023px) {
+      display: none;
+    }
+  }
+}
+
+.hideblk {
+  display: none;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+
+  &__column {
+    padding: 5px 0 0 0;
+
+    @media only screen and (max-width: 640px) {
+      margin: 0;
+    }
+    @media only screen and (min-width: 641px) and (max-width: 1023px) {
+      margin: 0;
+    }
+    &:nth-child(1) {
+      text-align: start;
+    }
+
+    &:nth-child(2) {
+      text-align: end;
+    }
+  }
+}
