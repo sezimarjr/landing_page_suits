@@ -34,8 +34,22 @@ function htmlMin() {
     .pipe(gulp.dest("dist"));
 }
 
+function copyVid() {
+  return gulp.src("./src/vid/*.mp4").pipe(gulp.dest("./dist/vid"));
+}
+function copyFonts() {
+  return gulp.src("./src/fonts/**/*").pipe(gulp.dest("./dist/fonts"));
+}
+
 // Tarefa padrão
-exports.default = gulp.parallel(styles, images, scripts, htmlMin);
+exports.default = gulp.parallel(
+  styles,
+  images,
+  scripts,
+  htmlMin,
+  copyVid,
+  copyFonts
+);
 
 // Tarefa de watch para monitorar mudanças nos arquivos .scss e imagens
 exports.watch = function () {
